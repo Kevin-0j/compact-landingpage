@@ -1,74 +1,8 @@
 import React, { useState } from 'react';
 import { ShoppingCart, X } from 'lucide-react';
 
-const PrivacyPolicy = ({ onClose }: { onClose: () => void }) => {
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
-      <div className="min-h-screen px-4 flex items-center justify-center">
-        <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
-          <div className="sticky top-0 bg-white p-6 border-b flex justify-between items-center">
-            <h2 className="text-2xl font-bold text-gray-900">Privacy Policy</h2>
-            <button
-              onClick={onClose}
-              className="text-gray-500 hover:text-gray-700"
-            >
-              <X className="h-6 w-6" />
-            </button>
-          </div>
-          <div className="p-6 space-y-6 text-gray-600">
-            <div className="space-y-4">
-              <p className="text-sm text-gray-500">Effective Date: November 25, 2024</p>
-              <p className="text-sm text-gray-500">Last Updated: November 25, 2024</p>
-              
-              <p>
-                Temba Deliveries ("we," "us," or "our") values your privacy and is committed to protecting 
-                your personal information. This Privacy Policy explains how we collect, use, disclose, 
-                and safeguard your information when you use our platform.
-              </p>
-
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">Summary</h3>
-              <p>
-                We collect certain data to make our app work smoothly, like your name, delivery address, 
-                and location for accurate deliveries. This Privacy Policy explains what we collect, why 
-                we collect it, how we use it, and your rights.
-              </p>
-
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">Information We Collect</h3>
-              <div className="space-y-4 ml-4">
-                <div>
-                  <h4 className="font-semibold text-gray-900">Personal Information</h4>
-                  <p>Name, email address, phone number, and delivery address when you create an account or place an order.</p>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold text-gray-900">Device Information</h4>
-                  <p>Device type, operating system, IP address, browser type, app usage data, and unique device identifiers.</p>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-gray-900">Location Data</h4>
-                  <p>Precise or approximate location data, if permission is granted, for enabling search functionality, 
-                  matching you with nearby stores and riders, and facilitating deliveries.</p>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-gray-900">Payment Information</h4>
-                  <p>Details of payments made through M-Pesa to our Pay Bill.</p>
-                </div>
-              </div>
-
-              <h3 className="text-xl font-semibold text-gray-900 mt-6">Contact Us</h3>
-              <p>
-                If you have any questions or concerns about this Privacy Policy, please contact us:<br />
-                Email: somil@gettemba.io<br />
-                URL: https://gettemba.io/privacy
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+const PrivacyPolicyLink = () => {
+  window.open('https://gettemba.io/privacy', '_blank');
 };
 
 const ContactForm = ({ onClose }: { onClose: () => void }) => {
@@ -76,10 +10,10 @@ const ContactForm = ({ onClose }: { onClose: () => void }) => {
     firstName: '',
     lastName: '',
     email: '',
-    message: ''
+    message: '',
   });
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     onClose();
@@ -88,7 +22,7 @@ const ContactForm = ({ onClose }: { onClose: () => void }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -182,7 +116,6 @@ const ContactForm = ({ onClose }: { onClose: () => void }) => {
 };
 
 const Footer = () => {
-  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
 
   return (
@@ -218,7 +151,7 @@ const Footer = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => setShowPrivacyPolicy(true)} 
+                  onClick={PrivacyPolicyLink} 
                   className="text-white/80 hover:text-white"
                 >
                   Privacy Policy
@@ -228,9 +161,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {showPrivacyPolicy && (
-        <PrivacyPolicy onClose={() => setShowPrivacyPolicy(false)} />
-      )}
       {showContactForm && (
         <ContactForm onClose={() => setShowContactForm(false)} />
       )}

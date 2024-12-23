@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight } from 'lucide-react';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,32 +48,6 @@ export default function Hero() {
                 ))}
               </span>
             </p>
-            <div className="mt-12 flex flex-col sm:flex-row gap-6">
-              <button
-                className="bg-primary text-white px-8 py-3 rounded-lg 
-                           transition-all duration-500 hover:scale-105 
-                           hover:shadow-lg hover:bg-primary-light
-                           opacity-0 animate-fade-in flex items-center justify-center"
-                style={{
-                  animationDelay: '1800ms',
-                  animationFillMode: 'forwards',
-                }}
-              >
-                Get Started
-                <ChevronRight className="ml-2 h-5 w-5 animate-bounce-x" />
-              </button>
-              <button
-                className="border border-primary text-primary px-8 py-3 rounded-lg 
-                           transition-all duration-500 hover:scale-105
-                           hover:bg-primary/5 opacity-0 animate-fade-in"
-                style={{
-                  animationDelay: '2000ms',
-                  animationFillMode: 'forwards',
-                }}
-              >
-                Learn More
-              </button>
-            </div>
           </div>
           <div
             className={`relative transition-all duration-1500 ease-out delay-500
