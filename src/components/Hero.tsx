@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ChevronRight } from 'lucide-react';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,6 +49,9 @@ export default function Hero() {
                 ))}
               </span>
             </p>
+            <div className="mt-12 flex flex-col sm:flex-row gap-6">
+              
+            </div>
           </div>
           <div
             className={`relative transition-all duration-1500 ease-out delay-500

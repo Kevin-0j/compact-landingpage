@@ -8,13 +8,13 @@ import TembaDeliveries from './components/TembaDeliveries';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
+import ContactPage from './components/ContactPage';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
         <Navbar />
-        {/* Add global padding to account for the navbar */}
         <div className="pt-16">
           <Routes>
             <Route
@@ -31,6 +31,7 @@ function App() {
               }
             />
             <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/ContactPage" element={<ContactPage />} />
           </Routes>
         </div>
       </div>
